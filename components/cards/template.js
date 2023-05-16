@@ -5,4 +5,4 @@ class Template {
     }
 }
 
-module.exports = Template;
+export default Template;

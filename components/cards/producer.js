@@ -1,4 +1,4 @@
-const Template = require('./template')
+import Template from "./template";
 class Producer extends Template {
     constructor(name, email, github) {
         super(name, email);
@@ -7,4 +7,4 @@ class Producer extends Template {
     }
 }
 
-module.exports = Producer;
+export default Producer;
