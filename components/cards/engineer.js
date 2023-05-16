@@ -1,4 +1,4 @@
-const Template = require('./template')
+import Template from './template'
 class Engineer extends Template {
     constructor(name, email, daw) {
         super(name, email);
@@ -6,4 +6,4 @@ class Engineer extends Template {
     }
 }
 
-module.exports = Engineer;
+export default  Engineer;

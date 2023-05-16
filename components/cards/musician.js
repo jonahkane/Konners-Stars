@@ -1,4 +1,4 @@
-const Template = require('./template')
+import Template from "./template";
 class Musician extends Template {
     constructor(name, email, instrument) {
         super(name, email);
@@ -6,4 +6,4 @@ class Musician extends Template {
     }
 }
 
-module.exports = Musician;
+export default Musician;

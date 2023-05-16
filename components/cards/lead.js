@@ -1,4 +1,4 @@
-const Template = require('./template')
+import Template from "./template";
 class Lead extends Template {
     constructor(name, email, phone) {
         super(name, email);
@@ -6,4 +6,4 @@ class Lead extends Template {
     }
 }
 
-module.exports = Lead;
+export default Lead;
