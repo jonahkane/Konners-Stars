@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import NextSteps from './NextSteps';
 
 function ProducerQs() {
-  const prompts = [`What is the engineer's name?`, 'What DAW do they use?', `What is the engineer's email?`]
+  const prompts = [`What is the producer's name?`, 'What DAW do they use?', `What is the producer's email?`, `What is the proucer's role in this session?`]
   const [questions, setQuestions] = useState(prompts[qNumba])
   const [qNumba, setQNumba] = useState(0)
   return (
