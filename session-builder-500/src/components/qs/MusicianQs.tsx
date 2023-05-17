@@ -1,11 +1,10 @@
-import React from 'react';
-import React, { useState, useEffect } from 'react';
+import { useState,  } from 'react';
 import NextSteps from './NextSteps';
 
 function MusicianQs() {
   const prompts = [`What is the musican's name?`, 'What instrument(s) the musican play for this session?', `What is the musicians email?`]
-  const [questions, setQuestions] = useState(prompts[qNumba])
   const [qNumba, setQNumba] = useState(0)
+  const [questions, setQuestions] = useState(prompts[qNumba])
   return (
     <div>
       {

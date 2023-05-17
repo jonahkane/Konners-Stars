@@ -1,11 +1,10 @@
-import React from 'react';
-import React, { useState, useEffect } from 'react';
+import { useState,} from 'react';
 import NextSteps from './NextSteps';
 
-function ProducerQs() {
-  const prompts = [`What is the producer's name?`, 'What DAW do they use?', `What is the producer's email?`, `What is the proucer's role in this session?`]
-  const [questions, setQuestions] = useState(prompts[qNumba])
+function EngineerQs() {
+  const prompts = [`What is the engineer's name?`, 'What DAW do they use?', `What is the engineer's email?`]
   const [qNumba, setQNumba] = useState(0)
+  const [questions, setQuestions] = useState(prompts[qNumba])
   return (
     <div>
       {
@@ -21,4 +20,4 @@ function ProducerQs() {
   );
 }
 
-export default ProducerQs;
+export default EngineerQs;
