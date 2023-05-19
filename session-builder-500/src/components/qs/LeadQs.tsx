@@ -1,5 +1,5 @@
 import { useState } from "react";
-import NextSteps from "./NextSteps";
+import { Outlet, Link } from "react-router-dom";
 function LeadQs() {
   const prompts: Array<string> = [
     "Who is in charge of this session",
@@ -17,9 +17,10 @@ function LeadQs() {
   };
   return (
     <div>
-      {qNumba > prompts.length ? (
+      {(qNumba +1) > prompts.length ? (
         <div>
-          <NextSteps />
+          <h1><Link to={'/nextSteps'}>GO TO NeXT Steps!</Link></h1>
+        <div><Outlet /></div>
         </div>
       ) : (
         <div>
