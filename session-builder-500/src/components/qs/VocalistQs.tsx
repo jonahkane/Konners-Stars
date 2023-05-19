@@ -1,21 +1,35 @@
-import { useState } from 'react';
-import NextSteps from './NextSteps';
-
+import { useState } from "react";
+import { Outlet, Link } from "react-router-dom";
 function VocalistQs() {
   const prompts = [`What is the vocalist's name?`,  `What is the vocalist's email?`, `What is Vocalist's range? (low to high)`]
-  const [qNumba, setQNumba] = useState(0)
-  const [questions, setQuestions] = useState(prompts[qNumba])
+ const [qNumba, setQNumba] = useState<number>(0);
+  const [input, setInput] = useState<string>(``);
+  const questions: string = prompts[qNumba];
+  const inputThingy: () => void = () => {
+    //inside here we will save our info collected to the database
+    setQNumba(qNumba + 1);
+    console.log(input);
+    setInput(``);
+  };
   return (
     <div>
-      {
-        (qNumba>prompts.length)
-        ? <div><NextSteps /></div>
-        :<form>
-        <h3>{questions}</h3>
-        <input></input>
-        <button onClick={()=>{setQNumba(qNumba + 1), setQuestions(prompts[qNumba])}}>Next</button>
-        </form>
-      }
+      {(qNumba +1) > prompts.length ? (
+        <div>
+          <h1><Link to={'/nextSteps'}>GO TO NeXT Steps!</Link></h1>
+        <div><Outlet /></div>
+        </div>
+      ) : (
+        <div>
+          <h3>{questions}</h3>
+          <input
+            value={input}
+            onChange={(event) => {
+              setInput(event.target.value);
+            }}
+          ></input>
+          <button onClick={inputThingy}>Next</button>
+        </div>
+      )}
     </div>
   );
 }
