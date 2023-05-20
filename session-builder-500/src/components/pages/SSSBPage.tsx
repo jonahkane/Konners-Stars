@@ -5,7 +5,7 @@ function SSSBPage() {
       <h1>This is the See Saved Session Build Page</h1>
       <section>
         <h1>I am a NAv Bar!</h1>
-        <Link to={"/"}>This is a Link to go back tothe main page!</Link>
+        <Link to={"/main"}>This is a Link to go back tothe main page!</Link>
       </section>
       <div>
         <p>THis is the example card that had been saved</p>

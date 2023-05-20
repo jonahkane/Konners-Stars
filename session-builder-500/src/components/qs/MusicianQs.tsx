@@ -1,18 +1,33 @@
 import { useState } from "react";
 import { Outlet, Link } from "react-router-dom";
+import service from "../../utils/sessionService";
 function MusicianQs() {
-  const prompts = [
+   //accessing our session service file
+  //that can get and set the current session file object
+  const getEmBoi = service.gettler();
+  const setMusicianData = service.settler(getEmBoi);
+  const prompts: Array<string> = [
     `What is the musican's name?`,
     "What instrument(s) the musican play for this session?",
     `What is the musicians email?`,
   ];
   const [qNumba, setQNumba] = useState<number>(0);
   const [input, setInput] = useState<string>(``);
+
   const questions: string = prompts[qNumba];
   const inputThingy: () => void = () => {
     //inside here we will save our info collected to the database
+    if(getEmBoi.musicianInfo) {
+    if (qNumba === 0) {
+      getEmBoi.musicianInfo.musicianName = input;
+    } else if (qNumba === 1) {
+      getEmBoi.musicianInfo.musicianInstruments = input;
+    } else {
+      getEmBoi.musicianInfo.musicianEmail = input;
+      console.log('got musician data', getEmBoi)
+    };}
+    setMusicianData
     setQNumba(qNumba + 1);
-    console.log(input);
     setInput(``);
   };
   return (

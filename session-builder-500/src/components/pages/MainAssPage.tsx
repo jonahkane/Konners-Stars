@@ -6,13 +6,13 @@ function MainAssPage() {
       <h1>This is the main page!</h1>
       <h1>Hello User! What would you like to do?</h1>
       <li>
-        <Link to={`/ssbSender`}>Start Session Build</Link>
+        <Link to={`/ssb`}>Start Session Build</Link>
       </li>
       <li>
-        <Link to={`/sssbSender`}>See Saved Session Builds</Link>
+        <Link to={`/sssb`}>See Saved Session Builds</Link>
       </li>
       <li>
-        <Link to={`/vbsSender`}>View Booked Sessions</Link>
+        <Link to={`/vbs`}>View Booked Sessions</Link>
       </li>
       <div><Outlet /></div>
     </div>

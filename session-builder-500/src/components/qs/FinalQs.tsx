@@ -4,7 +4,7 @@ function FinalQs() {
     <div>
         <button>Save Build</button>
         <button>Trash Build</button>
-        {/* <div><DisplayBuiltSession /></div> */}
+        {'SESSION OBJECT DISPLAYED HERE!'}
     </div>
   );
 }
