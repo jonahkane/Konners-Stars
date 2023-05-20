@@ -12,7 +12,7 @@ import ProducerQs from "./components/qs/ProducerQs";
 import Root from "./components/pages/Root";
 import NextSteps from "./components/qs/NextSteps";
 import FinalDeetz from "./components/qs/FinalDeetz";
-
+import TrashOrPass from "./components/qs/TrashOrPass";
 export default function Router() {
     return (
         <Routes>
@@ -28,6 +28,7 @@ export default function Router() {
         <Route path="/engineerQs" element={<EngineerQs />} />
         <Route path="/producerQs" element={<ProducerQs />} />
         <Route path="/finalDeetz" element={<FinalDeetz />} />
+        <Route path="/trashOrPass" element={<TrashOrPass />} />
         <Route path="*" element={<ErrorPage />} />
         </Routes>
     )

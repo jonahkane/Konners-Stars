@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Outlet, Link } from "react-router-dom";
 import service from "../../utils/sessionService";
 function ProducerQs() {
@@ -16,16 +16,18 @@ function ProducerQs() {
   const [input, setInput] = useState<string>(``);
   const questions: string = prompts[qNumba];
   const inputThingy: () => void = () => {
+    const producerInfo =
+      getEmBoi.producerInfo[getEmBoi.producerInfo.length - 1];
     //inside here we will save our info collected to the database
-    if (getEmBoi.producerInfo) {
+    if (producerInfo) {
       if (qNumba === 0) {
-        getEmBoi.producerInfo.producerName = input;
+        producerInfo.producerName = input;
       } else if (qNumba === 1) {
-        getEmBoi.producerInfo.producerRole = input;
+        producerInfo.producerRole = input;
       } else if (qNumba === 2) {
-        getEmBoi.producerInfo.producerDaw = input;
+        producerInfo.producerDaw = input;
       } else {
-        getEmBoi.producerInfo.producerEmail = input;
+        producerInfo.producerEmail = input;
         console.log("got producer data", getEmBoi);
       }
     }
@@ -33,6 +35,14 @@ function ProducerQs() {
     setQNumba(qNumba + 1);
     setInput(``);
   };
+  useEffect(() => {
+    getEmBoi.producerInfo.push({
+      producerName: "",
+      producerEmail: "",
+      producerDaw: "",
+      producerRole: "",
+    });
+  }, []);
   return (
     <div>
       {qNumba + 1 > prompts.length ? (

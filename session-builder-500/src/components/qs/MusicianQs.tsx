@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Outlet, Link } from "react-router-dom";
 import service from "../../utils/sessionService";
 function MusicianQs() {
@@ -16,20 +16,28 @@ function MusicianQs() {
 
   const questions: string = prompts[qNumba];
   const inputThingy: () => void = () => {
+    const musicianInfo = getEmBoi.musicianInfo[getEmBoi.musicianInfo.length - 1]
     //inside here we will save our info collected to the database
-    if(getEmBoi.musicianInfo) {
+    if(musicianInfo) {
     if (qNumba === 0) {
-      getEmBoi.musicianInfo.musicianName = input;
+      musicianInfo.musicianName = input;
     } else if (qNumba === 1) {
-      getEmBoi.musicianInfo.musicianInstruments = input;
+      musicianInfo.musicianInstruments = input;
     } else {
-      getEmBoi.musicianInfo.musicianEmail = input;
+      musicianInfo.musicianEmail = input;
       console.log('got musician data', getEmBoi)
     };}
     setMusicianData
     setQNumba(qNumba + 1);
     setInput(``);
   };
+  useEffect(()=>{
+    getEmBoi.musicianInfo.push({
+        musicianName: '',
+        musicianInstruments: '',
+        musicianEmail: '',
+    });
+  },[]);
   return (
     <div>
       {qNumba + 1 > prompts.length ? (

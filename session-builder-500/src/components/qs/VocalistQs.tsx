@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Outlet, Link } from "react-router-dom";
 import service from "../../utils/sessionService";
 function VocalistQs() {
@@ -13,23 +13,32 @@ function VocalistQs() {
   ];
   const [qNumba, setQNumba] = useState<number>(0);
   const [input, setInput] = useState<string>(``);
-  
+
   const questions: string = prompts[qNumba];
   const inputThingy: () => void = () => {
+    const voxInfo = getEmBoi.vocalistInfo[getEmBoi.vocalistInfo.length - 1];
     //inside here we will save our info collected to the database
-    if(getEmBoi.vocalistInfo) {
-    if (qNumba === 0) {
-      getEmBoi.vocalistInfo.vocalistName = input;
-    } else if (qNumba === 1) {
-      getEmBoi.vocalistInfo.vocalistEmail = input;
-    } else {
-      getEmBoi.vocalistInfo.vocalistRange = input;
-      console.log('got vox data', getEmBoi)
-    };}
-    setVoxData
+    if (voxInfo) {
+      if (qNumba === 0) {
+        voxInfo.vocalistName = input;
+      } else if (qNumba === 1) {
+        voxInfo.vocalistEmail = input;
+      } else {
+        voxInfo.vocalistRange = input;
+        console.log("got vox data", getEmBoi);
+      }
+    }
+    setVoxData;
     setQNumba(qNumba + 1);
     setInput(``);
   };
+  useEffect(() => {
+    getEmBoi.vocalistInfo.push({
+      vocalistName: "",
+      vocalistEmail: "",
+      vocalistRange: "",
+    });
+  }, []);
   return (
     <div>
       {qNumba + 1 > prompts.length ? (

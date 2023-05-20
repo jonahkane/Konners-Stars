@@ -1,9 +1,9 @@
 export interface Session {
     leadInfo: LeadQ;
-    musicianInfo?: MusicianQ;
-    vocalistInfo?: VocalistQ;
-    engineerInfo?: EngineerQ;
-    producerInfo?: ProducerQ;
+    musicianInfo: MusicianQ[];
+    vocalistInfo: VocalistQ[];
+    engineerInfo: EngineerQ[];
+    producerInfo: ProducerQ[];
     finalD: FinalDeetzz;
 }
 
