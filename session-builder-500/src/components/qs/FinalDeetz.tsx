@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Outlet, Link } from "react-router-dom";
 import service from "../../utils/sessionService";
 function FinalDeetz() {
   //accessing our session service file
@@ -36,13 +37,12 @@ function FinalDeetz() {
     <div>
       {qNumba + 1 > prompts.length ? (
         <div>
-          <h1>CHeck your console log!</h1>
-          {/* <h1>
-            <Link to={"/nextSteps"}>GO TO NeXT Steps!</Link>
+          <h1>
+            <Link to={"/trashOrPass"}>Session Built!</Link>
           </h1>
           <div>
             <Outlet />
-          </div> */}
+          </div>
         </div>
       ) : (
         <div>
