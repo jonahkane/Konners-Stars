@@ -48,7 +48,7 @@ const resolvers = {
 
       return { token, user };
     },
-    addSessoin: async (parent, { sessionText }, context) => {
+    addSession: async (parent, { sessionText }, context) => {
       if (context.user) {
         const session = await Session.create({
           sessionText,
