@@ -11,8 +11,11 @@
     "heroku-postbuild": "node utils/seed.js"
   },
   "dependencies": {
+    "bcrypt": "^5.0.0",
+    "apollo-server-express": "^3.6.2",
     "express": "^4.17.1",
-    "mongoose": "^6.0.13"
+    "mongoose": "^6.0.13",
+    "jsonwebtoken": "^8.5.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.9"
