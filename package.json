@@ -1,14 +1,16 @@
 {
-  "name": "28-Stu_Mini-Project",
+  "name": "Project-3",
   "version": "1.0.1",
   "description": "Mongoose back-end project - Main",
-  "main": "index.js",
+  "main": "index/index.js",
   "license": "MIT",
   "scripts": {
-    "start": "node index",
-    "dev": "nodemon index",
+    "start": "node index/index.js",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd session-builder-500 && npm start\"",
+    
     "seed": "node utils/seed",
     "heroku-postbuild": "node utils/seed.js"
+    
   },
   "dependencies": {
     "express": "^4.17.1",
