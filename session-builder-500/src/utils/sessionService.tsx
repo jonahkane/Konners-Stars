@@ -25,6 +25,7 @@ class seshyWeshy {
         return(this.session)
     };
     public wipeler() {
+        this.session = defaultSession;
         this.session.musicianInfo.length = 0;
         this.session.vocalistInfo.length = 0;
         this.session.engineerInfo.length = 0;
