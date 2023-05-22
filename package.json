@@ -8,7 +8,7 @@
     "start": "node index",
     "dev": "nodemon index",
     "seed": "node utils/seed",
-    "heroku-postbuild": "node utils/seed.js"
+    "heroku-postbuild": "node server/seeders/seed.js"
   },
   "dependencies": {
     "bcrypt": "^5.0.0",
