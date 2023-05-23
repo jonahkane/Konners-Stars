@@ -2,8 +2,7 @@
   "name": "Project-3",
   "version": "1.0.1",
   "description": "Mongoose back-end project - Main",
-  "main": "index/index.js",
-  "license": "MIT",
+  "main": "server/index.js",
   "scripts": {
     "start": "node index/index.js",
     "develop": "concurrently \"cd server && npm run watch\" \"cd session-builder-500 && npm run dev\"",
@@ -11,13 +10,17 @@
     "seed": "node utils/seed",
     "build": "cd session-builder-500 && npm run build",
     "heroku-postbuild": "node utils/seed.js"
-    
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^5.1.0",
+    "nodemon": "^2.0.9"
   },
   "dependencies": {
     "express": "^4.17.1",
-    "mongoose": "^6.0.13"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.9"
+    "mongoose": "^6.0.13",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }
