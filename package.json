@@ -1,5 +1,5 @@
 {
-  "name": "project-3",
+  "name": "Project-3",
   "version": "1.0.1",
   "description": "Mongoose back-end project - Main",
   "main": "server/index.js",
@@ -10,7 +10,6 @@
     "seed": "node utils/seed",
     "build": "cd session-builder-500 && npm run build",
     "heroku-postbuild": "node utils/seed.js"
-  },
   "keywords": [],
   "author": "",
   "license": "MIT",
