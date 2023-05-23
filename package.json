@@ -10,6 +10,7 @@
     "seed": "node utils/seed",
     "build": "cd session-builder-500 && npm run build",
     "heroku-postbuild": "node utils/seed.js"
+  },
   "keywords": [],
   "author": "",
   "license": "MIT",
