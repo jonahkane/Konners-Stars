@@ -1,45 +1,43 @@
-const { Schema, model } = require('mongoose');
-const dateFormat = require('../utils/dateFormat');
+const { Schema, model } = require("mongoose");
 
+// Schema to create a course model
 const sessionSchema = new Schema({
-  sessionText: {
-    type: String,
-    required: 'You need to leave a session!',
-    minlength: 1,
-    maxlength: 280,
-    trim: true,
+  sessionId: {
+    type: Schema.Types.ObjectId,
+    default: () => new Types.ObjectId(),
   },
-  sessionAuthor: {
+  sessionName: {
     type: String,
     required: true,
-    trim: true,
+    maxlength: 50,
+    minlength: 4,
+    default: "Unnamed session",
   },
   createdAt: {
     type: Date,
     default: Date.now,
-    get: (timestamp) => dateFormat(timestamp),
   },
-  comments: [
+  date: {
+    type: Date,
+    require: true,
+  },
+  users: [
     {
-      commentText: {
-        type: String,
-        required: true,
-        minlength: 1,
-        maxlength: 280,
-      },
-      commentAuthor: {
-        type: String,
-        required: true,
-      },
-      createdAt: {
-        type: Date,
-        default: Date.now,
-        get: (timestamp) => dateFormat(timestamp),
-      },
+      type: Schema.Types.ObjectId,
+      ref: "User",
     },
   ],
+  sessionData: {
+    type: String,
+    required: true,
+  },
+  booked: {
+    type: Boolean,
+    required: true,
+    default: false,
+  },
 });
 
-const Session = model('session', sessionSchema);
+const session = model("session", sessionSchema);
 
-module.exports = Session;
+module.exports = session;

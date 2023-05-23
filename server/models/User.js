@@ -1,45 +1,33 @@
-const { Schema, model } = require('mongoose');
-const bcrypt = require('bcrypt');
+const { Schema, model } = require("mongoose");
 
+// Schema to create Student model
 const userSchema = new Schema({
   username: {
     type: String,
-    required: true,
     unique: true,
-    trim: true,
+    required: true,
+    trimmed: true,
   },
   email: {
     type: String,
     required: true,
     unique: true,
-    match: [/.+@.+\..+/, 'Must match an email address!'],
+    match: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
   },
   password: {
     type: String,
     required: true,
-    minlength: 5,
+    min_length: 5,
   },
-  thoughts: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Thought',
-    },
-  ],
+  /* aboutMe: {
+    type: String,
+    required: false,
+    min_length: 1,
+    max_length: 250,
+  }, */
+  makeSessions: [sessionSchema],
 });
 
-userSchema.pre('save', async function (next) {
-  if (this.isNew || this.isModified('password')) {
-    const saltRounds = 10;
-    this.password = await bcrypt.hash(this.password, saltRounds);
-  }
-
-  next();
-});
-
-userSchema.methods.isCorrectPassword = async function (password) {
-  return bcrypt.compare(password, this.password);
-};
-
-const User = model('User', userSchema);
+const User = model("user", userSchema);
 
 module.exports = User;
